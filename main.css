@@ -1,0 +1,19 @@
+.div1 {
+    background-color: violet;
+    width: 200px;
+    height: 200px;
+    border: 7px dotted #0000;
+    border-radius: 10%;
+}
+#second {
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    margin: 50px; /*밖 여백*/
+    padding: 10px;  /*안 쪽 여백*/
+}
+div > p {
+    color: #ffff;
+    font-size: 20px;
+    font-weight: 400;
+}
