@@ -5,6 +5,16 @@ const { futimesSync } = require('fs');
 // express 사용할때 사용 node_modules에서 express기능들을 express라는 변수안에
 // 넣어서 사용하겠다.
 const app = express();
+const ejs = require("ejs");
+
+app.set("view engine", 'ejs');
+// 그림파일을 브라우저에 전달할 때 ejs를 사용하겠다. (확장자가 ejs)
+app.set("views", "./views");
+// 우리가 사용할 view관련 파일들은 그 경로에 있다.
+app.use("/public", express.static(__dirname + "/public"));
+//css나 이미지등 정적인 파일들은 위 폴더에 있다.
+// express.static은 상대적인 주소를 알려주는 도구 이용
+
 app.use(helmet());
 //helmet 사용
 app.use(express.json());
