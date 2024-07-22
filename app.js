@@ -7,6 +7,9 @@ const { futimesSync } = require('fs');
 const app = express();
 app.use(helmet());
 //helmet 사용
+app.use(express.json());
+app.use(express.urlencoded());
+//post방식으로 가져온 데이터를 서버에서 활용 할 수 있게 해줌 
 
 const mainRouter = require("./router/mainRouter");
 //mainRouter 파일 안에 있는 router라는 변수 가져온 것
