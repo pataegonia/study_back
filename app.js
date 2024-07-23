@@ -6,6 +6,8 @@ const { futimesSync } = require('fs');
 // 넣어서 사용하겠다.
 const app = express();
 const ejs = require("ejs");
+const db = require("./model/db")
+//db.js 가져오기
 
 app.set("view engine", 'ejs');
 // 그림파일을 브라우저에 전달할 때 ejs를 사용하겠다. (확장자가 ejs)
@@ -28,5 +30,7 @@ app.use('/', mainRouter);
 
 
 app.listen(3000, function(req,res){
+    db.sequelize.sync({force:false});
+    //db에 접속하는 코드
     console.log("server on");
 })// 3000port를 사용하겠다.
