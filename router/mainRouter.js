@@ -3,6 +3,17 @@ const router = express.Router();
 // 주소 관련 명령어 따로 빼기
 const db = require("../model/db");
 
+const cheerio = require("cheerio");
+// html코드를 가지고와서 html의 테그 등을 코드에서 다룰 수 있게 해줌
+// html코드에서 클레스 이름, 태그이름을 가져와서 거기에 있는 데이터 가져올 수 있음
+const axios = require("axios");
+// 외부의 html코드를 가져올 때 사용하는 도구
+const iconv = require("iconv-lite");
+
+router.get("/crawling",function(req,res){
+    
+})
+
 router.get("/", function(req, res){
     
     let query= page = req.query.page
@@ -13,6 +24,40 @@ router.get("/", function(req, res){
     //응답으로 그림파일을 전달해줄 때 사용
     // ejs를 사용함으로 그림 파일과 동시에 데이터까지 같이 전송할 수 있다.
 })// get방식으로 주소 만들기
+
+
+router.get("/movie", function(req,res){
+    let query= page = req.query.page;
+    res.render("movie",{title:"영화 리뷰 사이트"});
+})
+
+router.post("/movie/review/create", function(req,res){
+    let movie_id = req.body.movie_id;
+    // 서버에서 사용할 변수 선언
+    // movie_id라는 변수 안에 post로 보낸 값중 key값이 movie_id인거 
+    let review = req.body.review;
+
+    if(movie_id=='' || movie_id==0){
+        res.send({success:400})
+    }else{
+        db.reviews.create({
+            movie_id:movie_id,
+            review:review
+        }).then(function(result){
+            res.send({success:200})
+        })
+    }
+
+})
+
+router.get("/movie/review/read",function(req,res){
+    let movie_id = req.query.movie_id;
+
+    db.reviews.findAll({where:{movie_id:movie_id}}).then(function(result){
+        res.send({success:200,data:result});
+    })
+})
+
 
 router.get("/about", function(req,res){
     res.send("About Page")

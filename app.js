@@ -17,8 +17,9 @@ app.use("/public", express.static(__dirname + "/public"));
 //css나 이미지등 정적인 파일들은 위 폴더에 있다.
 // express.static은 상대적인 주소를 알려주는 도구 이용
 
-app.use(helmet());
+//app.use(helmet());
 //helmet 사용
+// js에서 inline문법으로 키값이나 js코드를 바로 부르는 경우 막음
 app.use(express.json());
 app.use(express.urlencoded());
 //post방식으로 가져온 데이터를 서버에서 활용 할 수 있게 해줌 
