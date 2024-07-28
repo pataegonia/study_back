@@ -9,10 +9,8 @@ const cheerio = require("cheerio");
 const axios = require("axios");
 // 외부의 html코드를 가져올 때 사용하는 도구
 const iconv = require("iconv-lite");
+const url = "https://finance.naver.com/sise/lastsearch2.nhn"
 
-router.get("/crawling",function(req,res){
-    
-})
 
 router.get("/", function(req, res){
     
