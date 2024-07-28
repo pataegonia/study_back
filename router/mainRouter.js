@@ -61,14 +61,6 @@ router.get("/about", function(req,res){
     res.send("About Page")
 })
 
-router.post("/postapi", function(req,res){
-    let body = req.body;// post로 보낸 key와 val들을 얻는 법
-    console.log(body);
-    res.send("POST API");
-})// post로 만들기 근데 post는 /뒤에 그냥 주소치는 걸로는 접속 x
-// 주소치는 것은 get방식이기 때문에 post는 코드에서만 접속 가능
-//테스트 하고 싶으면 postman이용
-
 router.get("/data/create", function(req,res){
     let user_id = parseInt(Math.random() * 10000)//userid는 랜덤 정수
     db.users.create({user_id:user_id}).then(function(result){

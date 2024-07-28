@@ -3,8 +3,8 @@ var sequelize;
 // mysql 작성을 자바 문법에 맞게 해주는 도구
 
 //sequelize변수에 database이름, root, 비밀번호, mysqp 정보 담긴 객체 전달
-sequelize = new Sequelize("study_back","root","9986",{
-    host:"localhost", //host이름
+sequelize = new Sequelize("class101","clue9986","robin9986!",{
+    host:"class101.c7swysayg0mk.ap-northeast-2.rds.amazonaws.com", //host이름
     port:3306, //mysql은 항상 3306
     dialect:"mysql",// 이용할 도구
     timezone: "+09:00",//시간
