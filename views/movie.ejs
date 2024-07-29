@@ -79,7 +79,7 @@
                 let image_host = "https://image.tmdb.org/t/p/w500/"
                 let movie_list = json.results;
                 for(let i=0; i<movie_list.length; i++){
-                    let card = `<div class="col-sm" style="margin-top:10px;border:none">
+                    let card = `<div class="col-sm" margin-top:10px;border:none>
                         <div class="card" style="width: 18rem;">
                             <img src="${image_host + '' + movie_list[i].poster_path }" class="card-img-top" alt="...">
                             <div class="card-body">
