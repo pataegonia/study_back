@@ -58,7 +58,8 @@ router.get("/movie/review/read",function(req,res){
 
 
 router.get("/about", function(req,res){
-    res.send("About Page")
+    let query = page= req.query.page;
+    res.render("about", {title:"about page"});
 })
 
 router.get("/mysites", function(req,res){

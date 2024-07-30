@@ -6,6 +6,7 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Jua&display=swap" rel="stylesheet">
     <link href="/public/main.css" rel="stylesheet"/>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GMRK2DBYWE"></script>
@@ -19,16 +20,36 @@
     <meta name="naver-site-verification" content="ea412186f152e2c666d503c8abc3c09279435699" />
 </head>
 <body>
-    <h1>Main Page</h1>
-    <h2><%= locals.title %></h2>
-    <!-- <%= %>는 ejs 명령어 사용하는 부분 locals는 서버에서 그림을 전달
-     해줄 때 데이터가 담겨 있는 곳 거기서 title을 가져오겠다.-->
-     <button onclick="checkButton()"> this is button</button>
+    <nav class="navbar navbar-dark bg-dark" aria-label="First navbar example">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="http://xornjsqkr.site">Xornjsqkr</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+    
+          <div class="collapse navbar-collapse" id="navbarsExample01">
+            <ul class="navbar-nav me-auto mb-2">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="http://xornjsqkr.site">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="http://xornjsqkr.site/about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="http://xornjsqkr.site/mysites">My Sites</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="http://xornjsqkr.site/khusites">KHU Sites</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 <script>
-    function checkButton(){
-        gtag("event", 'login', {'method':"Google"});
-    }
+
 </script>
 </html>

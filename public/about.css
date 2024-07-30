@@ -4,18 +4,21 @@
 
 body {
     padding-bottom: 20px;
-    background: #333;
   }
   
   .navbar {
     margin-bottom: 20px;
   }
 
-  #cards {
-    display: flex;
-    flex-direction: row;
-  }
-  
   .nav-link {
     width: max-content;
   }
+
+  body {
+    background: #333;
+}
+
+#jumbotron {
+    text-align: center;
+    margin-top: 30px;
+}
