@@ -62,6 +62,28 @@ router.get("/about", function(req,res){
     res.render("about", {title:"about page"});
 })
 
+router.get("/about/guest/read", function(req,res){
+    db.guests.findAll().then(function(result){
+        res.send({success:200, data:result});
+    })
+})
+
+router.post("/about/guest/add", function(req,res){
+    let user_name = req.body.user_name;
+    let comment = req.body.comment
+
+    if(user_name=='' || comment==''){
+        res.send({success:400})
+    }else{
+        db.guests.create({
+            user_name:user_name,
+            comment:comment
+        }).then(function(result){
+            res.send({success:200})
+        })
+    }
+})
+
 router.get("/mysites", function(req,res){
     let query= page= req.query.page;
     res.render("showmine",{title:"my pages"});

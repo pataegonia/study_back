@@ -21,6 +21,8 @@ db.users = sequelize.import(__dirname + "/users.js");
 //users라는 내가 만든 테이블 가져오기 
 db.reviews = sequelize.import(__dirname + "/reviews.js");
 
+db.guests = sequelize.import(__dirname+"/guests.js");
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
