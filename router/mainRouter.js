@@ -94,6 +94,11 @@ router.get("/khusites", function(req,res){
     res.render("showkhu",{title:"khu pages"});
 })
 
+router.get("/todoes", function(req,res){
+    let query = page = req.query.page;
+    res.render("todoes",{title:"ToDo Lists"});
+})
+
 // router.get("/data/create", function(req,res){
 //     let user_id = parseInt(Math.random() * 10000)//userid는 랜덤 정수
 //     db.users.create({user_id:user_id}).then(function(result){
