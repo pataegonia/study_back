@@ -95,7 +95,7 @@ router.get("/khusites", function(req,res){
 })
 
 router.get("/todoes", function(req,res){
-    let query = page = req.query.page;
+    let query= page= req.query.page;
     res.render("todoes",{title:"ToDo Lists"});
 })
 
