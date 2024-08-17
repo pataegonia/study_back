@@ -8,21 +8,24 @@
   <body>
     <div id="root"></div>
   </body>
-  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
-  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
   <script type="text/babel">
     const root = document.querySelector("#root");
 
-    function Btn({ text }) {
+    function Btn({ text, onClick, fontSize }) {
       return (
         <button
+          onClick={onClick}
           style={{
             backgroundColor: "tomato",
             color: "white",
             padding: "10px 20px",
             border: 0,
             borderRadius: 10,
+            fontSize: fontSize,
           }}
         >
           {text}
@@ -30,11 +33,23 @@
       );
     }
 
+    const MemorizedBtn = React.memo(Btn);
+
+    MemorizedBtn.propTypes = {
+      text: PropTypes.string.isRequired,
+      onClick: PropTypes.func,
+      fontSize: PropTypes.number,
+    };
+
     function Container() {
+      const [val, setVal] = React.useState("Save");
+      const changeVal = () => {
+        setVal("Revert Changes");
+      };
       return (
         <div>
-          <Btn text="Save Change" />
-          <Btn text="confirm" />
+          <MemorizedBtn text={val} onClick={changeVal} fontSize={18} />
+          <MemorizedBtn text="confirm" fontSize={18} />
         </div>
       );
     }
